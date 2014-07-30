@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+    <script src="http://live.insight.is/socket.io/socket.io.js"></script>
+
+    <script>
+
+        socket = io.connect("http://live.insight.is:80/socket.io/1/");
+
+        socket.on('connect', function() {
+            socket.emit('subscribe', 'inv');
+            socket.on('tx', function(tx) {
+                console.log(tx);
+            });
+        });
+
+    </script>
+
+    </body>
+<html>

@@ -9,6 +9,7 @@
         socket = io.connect("http://live.insight.is:80/socket.io/1/");
 
         socket.on('connect', function() {
+            socket.nsp = "/";
             socket.emit('subscribe', 'inv');
             socket.on('tx', function(tx) {
                 console.log(tx);
